@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+agencies = Agency.create(
+  [
+    { name: 'Acme',         description: 'Good Agency',    grade: 'padawan', tag_list: 'placement, recruiting' },
+    { name: 'Good People',  description: 'Top One',        grade: 'jedi',    tag_list: 'placement, recruiting, contracting' },
+    { name: 'Rock Results', description: 'We get it done', grade: 'master',  tag_list: 'contracting, hiring' }
+  ]
+)
