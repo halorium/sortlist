@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>The Agencies View!</h1>
+  <table ng-if="agencies">
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Grade</th>
+      <th>Tags</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="agency in agencies">
+        <td>{{agency.id}}</td>
+        <td>{{agency.name}}</td>
+        <td>{{agency.description}}</td>
+        <td>{{agency.grade}}</td>
+        <td>{{agency.tag_list}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
