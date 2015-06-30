@@ -26,8 +26,9 @@ gem 'jquery-rails'
 # gem 'turbolinks'
 
 # Use AngularJS
-gem 'angular-rails-templates'
 gem 'bower-rails'
+gem 'angular-rails-templates'
+gem 'sprockets', '2.12.3'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
