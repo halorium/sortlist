@@ -3,7 +3,7 @@
     <h1>Backend Challenge</h1>
   </div>
   <div class="col-md-8">
-    <div ng-repeat="agency in agencies | orderBy:grade | filter:{name:name_filter} | tagsFilter:tag_filter">
+    <div ng-repeat="agency in agencies | orderBy:'grade' | filter:{name:name_filter} | tagsFilter:tag_filter">
       <div class="panel panel-default">
         <div class="panel-heading">
           <div class="row">
@@ -11,8 +11,8 @@
               <h3 class="panel-title pull-left">{{agency.name}}</h3>
             </div>
             <div class="col-md-6">
-              <ul class="panel-tags list-inline col-xs-3" ng-repeat="tag in agency.tag_list">
-                <li class="panel-tag">{{tag}}</li>
+              <ul class="panel-tags list-inline">
+                <li class="panel-tag" ng-repeat="tag in agency.tag_list">{{tag}}</li>
               </ul>
             </div>
             <div class="col-md-2">
@@ -49,22 +49,22 @@
         <span class="panel-title">Add an agency</span>
       </div>
       <div class="panel-body">
-        <form role="form">
+        <form name="new_agency" role="form" ng-controller="AgencyCtrl" ng-submit="submitForm()">
           <div class="form-group">
-            <label for="agency_name">Name:</label>
-            <input id="agency_name" type="text" class="form-control" ng-model="agency_name">
+            <label for="new_agency.name">Name:</label>
+            <input id="new_agency.name" type="text" class="form-control" ng-model="new_agency.name">
           </div>
           <div class="form-group">
-            <label for="agency_description">Description:</label>
-            <input id="agency_description" type="text" class="form-control" ng-model="agency_description">
+            <label for="new_agency.description">Description:</label>
+            <input id="new_agency.description" type="text" class="form-control" ng-model="new_agency.description">
           </div>
           <div class="form-group">
-            <label for="agency_tags">Tags:</label>
-            <input id="agency_tags" type="text" class="form-control" placeholder="separate with a comma" ng-model="agency_tags">
+            <label for="new_agency.tag_list">Tags:</label>
+            <input id="new_agency.tag_list" type="text" class="form-control" placeholder="separate with a comma" ng-model="new_agency.tag_list">
           </div>
           <div class="form-group">
-            <label for="agency_grade">Grade:</label>
-            <select id="agency_grade" name="agency_grade" type="text" class="form-control" ng-model="agency_grade">
+            <label for="new_agency.grade">Grade:</label>
+            <select id="new_agency.grade" name="new_agency.grade" type="text" class="form-control" ng-model="new_agency.grade">
               <option value="padawan">Padawan</option>
               <option value="jedi" selected>Jedi</option>
               <option value="master">Master</option>
