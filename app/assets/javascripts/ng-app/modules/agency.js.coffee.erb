@@ -1,7 +1,8 @@
 @agencyApp = angular
   .module('app.agencyApp', [
-    'restangular',
-    'templates'
+    'templates',
+    'ui.router',
+    'restangular'
   ])
   .run(->
     console.log 'agencyApp running'
