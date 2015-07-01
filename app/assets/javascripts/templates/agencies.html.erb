@@ -1,21 +1,69 @@
 <div class="container">
-  <h1>The Agencies View!</h1>
-  <table ng-if="agencies">
-    <thead>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Grade</th>
-      <th>Tags</th>
-    </thead>
-    <tbody>
-      <tr ng-repeat="agency in agencies">
-        <td>{{agency.id}}</td>
-        <td>{{agency.name}}</td>
-        <td>{{agency.description}}</td>
-        <td>{{agency.grade}}</td>
-        <td>{{agency.tag_list}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <h1>Backend Challenge</h1>
+
+    <div class="col-md-8">
+      <div ng-repeat="agency in agencies | orderBy:grade | filter:{name:name_filter} | tagsFilter:tag_filter">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="panel-title">{{agency.name}}</span>
+            <span class="panel-tags" ng-repeat="tag in agency.tag_list">
+              <span>{{tag}}</span>
+            </span>
+            <span class="panel-grade">{{agency.grade}}</span>
+          </div>
+          <div class="panel-body">
+            <p>{{agency.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="panel-title">Filter your agencies</span>
+        </div>
+        <div class="panel-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="name">Filter by name:</label>
+              <input id="name" type="text" class="form-control" placeholder="A1 Agency" ng-model="name_filter">
+            </div>
+            <div class="form-group">
+              <label for="tags">Filter by tags:</label>
+              <input id="tags" type="text" class="form-control" placeholder="Digital Advertising, User Experience" ng-model="tag_filter">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="panel-title">Add an agency</span>
+        </div>
+        <div class="panel-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="agency_name">Name:</label>
+              <input id="agency_name" type="text" class="form-control" ng-model="agency_name">
+            </div>
+            <div class="form-group">
+              <label for="agency_description">Description:</label>
+              <input id="agency_description" type="text" class="form-control" ng-model="agency_description">
+            </div>
+            <div class="form-group">
+              <label for="agency_tags">Tags:</label>
+              <input id="agency_tags" type="text" class="form-control" placeholder="separate with a comma" ng-model="agency_tags">
+            </div>
+            <div class="form-group">
+              <label for="agency_grade">Grade:</label>
+              <select id="agency_grade" name="agency_grade" type="text" class="form-control" ng-model="agency_grade">
+                <option value="padawan">Padawan</option>
+                <option value="jedi" selected>Jedi</option>
+                <option value="master">Master</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
