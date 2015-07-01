@@ -30,7 +30,7 @@ module Api
       respond_to do |format|
         if @agency.save
           format.html { redirect_to @agency, notice: 'Agency was successfully created.' }
-          format.json { render :show, status: :created, location: @agency }
+          format.json { render :show, status: :created, location: [:api, @agency] }
         else
           format.html { render :new }
           format.json { render json: @agency.errors, status: :unprocessable_entity }
