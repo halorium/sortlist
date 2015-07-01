@@ -10,4 +10,6 @@ angular.module('app').factory("AgencyService", [
     )
 
     list: ()-> Restangular.all('api/agencies').getList()
+
+    post: (data)-> Restangular.all('api/agencies').post(data)
 ])
