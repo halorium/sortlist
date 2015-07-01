@@ -1,22 +1,41 @@
 angular.module('app').controller("AgencyCtrl", [
   '$scope', 'AgencyService',
   ($scope, AgencyService) ->
+
     console.log 'AgencyCtrl running'
 
-    AgencyService.list().then((agencies) ->
-      $scope.agencies = agencies
+    init = ()->
+      AgencyService.list().then((agencies) ->
+        $scope.agencies = agencies
+      )
 
-      tags = []
+      $scope.name_filter = ''
+      $scope.tags_filter = ''
 
-      for agency in agencies
-        tags = _.union(tags, agency.tag_list)
+      $scope.new_agency = {
+        name: '',
+        description: '',
+        tag_list: [],
+        grade: ''
+      }
 
-      $scope.tags = tags
+    $scope.submitForm = ()->
+      console.dir('submit new agency')
+      data = { agency: {
+        name: $scope.new_agency.name,
+        description: $scope.new_agency.description,
+        tag_list: $scope.new_agency.tag_list,
+        grade: $scope.new_agency.grade
+      } }
 
-      console.dir(tags)
-      console.dir agencies
-    )
+      console.log(data)
+      AgencyService.post(data).then(
+        (agency) ->
+          # update scope with new agency
+          init()
+        (error) ->
+          console.log(error)
+      )
 
-    $scope.name_filter = ''
-    $scope.tags_filter = ''
+    init()
 ])
