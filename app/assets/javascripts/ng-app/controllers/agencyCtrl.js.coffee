@@ -5,9 +5,18 @@ angular.module('app').controller("AgencyCtrl", [
 
     AgencyService.list().then((agencies) ->
       $scope.agencies = agencies
+
+      tags = []
+
+      for agency in agencies
+        tags = _.union(tags, agency.tag_list)
+
+      $scope.tags = tags
+
+      console.dir(tags)
       console.dir agencies
     )
 
-    $scope.exampleValue = "Hello angular and rails"
-
+    $scope.name_filter = ''
+    $scope.tags_filter = ''
 ])
