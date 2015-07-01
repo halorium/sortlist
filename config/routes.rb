@@ -6,8 +6,7 @@ Rails.application.routes.draw do
     resources :agencies, defaults: {format: :json}
   end
 
-  get "*path.html" => "application#index", :layout => 0
-  get "*path" => "application#index"
+  get '*path', :to => 'application#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
