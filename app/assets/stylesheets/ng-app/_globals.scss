@@ -25,3 +25,29 @@
         @include opacity(1);
     }
 }
+
+.grade {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 5px;
+  background: red;
+  text-decoration: none;
+}
+
+.grade:hover {
+  text-decoration: none;
+}
+
+.padawan {
+  background: green;
+}
+
+.jedi {
+  background: orange;
+}
+
+.master {
+  background: red;
+}
