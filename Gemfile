@@ -58,5 +58,10 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails'
+  gem 'rspec-mocks'
+
+  gem 'angularjs-rails'
+  gem 'jasmine', github: 'pivotal/jasmine-gem'
+
 end
 
