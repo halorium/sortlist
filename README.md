@@ -38,3 +38,19 @@ $ rake jasmine
 $ rails server
 `
 ### How to deploy
+
+This uses figaro and assumes production is on Heroku
+
+* copy config/application.yml.example -> config/application.yml
+* run the following:
+`
+$ RAILS_ENV=production rake secret
+`
+* copy the secret and add it to the application.yml
+* run the following:
+`
+$ git push heroku master
+$ heroku run rake db:migrate
+$ heroku run rake db:seed
+`
+
