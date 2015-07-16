@@ -72,19 +72,19 @@
 
       it('sets initial values, ', function() {
         expect(scope.agencies).toEqual([emptyAgency,emptyAgency]);
-        expect(scope.name_filter).toEqual('');
-        expect(scope.tags_filter).toEqual('');
-        expect(scope.new_agency).toEqual(emptyAgency);
+        expect(scope.nameFilter).toEqual('');
+        expect(scope.tagsFilter).toEqual('');
+        expect(scope.newAgency).toEqual(emptyAgency);
       });
 
     });
 
     describe('scope.submitForm', function() {
       it('submits form data to create a new agency', function() {
-        scope.new_agency.name = 'New Agency';
-        scope.new_agency.description = 'New Agency Description';
-        scope.new_agency.tag_list = 'Tag One, Tag Two';
-        scope.new_agency.grade = 'padawan';
+        scope.newAgency.name = 'New Agency';
+        scope.newAgency.description = 'New Agency Description';
+        scope.newAgency.tag_list = 'Tag One, Tag Two';
+        scope.newAgency.grade = 'padawan';
 
         scope.submitForm();
         expect(AgencyService.post).toHaveBeenCalled();

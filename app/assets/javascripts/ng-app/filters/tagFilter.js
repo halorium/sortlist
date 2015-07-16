@@ -8,8 +8,8 @@ angular.module('app').filter('tagsFilter', function () {
 
       (items || []).forEach(function (item) {
         var matches = tags.every(function (tag) {
-          var mapping = item.tag_list.map(function(tag_name){
-            return (tag_name.toLowerCase().indexOf(tag.toLowerCase()) > -1);
+          var mapping = item.tag_list.map(function(tagName){
+            return (tagName.toLowerCase().indexOf(tag.toLowerCase()) > -1);
           });
           if ($.inArray(true, mapping) > -1) {
             return true;

@@ -9,10 +9,10 @@ angular.module('app').controller("AgencyCtrl", [
         $scope.agencies = agencies
       )
 
-      $scope.name_filter = ''
-      $scope.tags_filter = ''
+      $scope.nameFilter = ''
+      $scope.tagsFilter = ''
 
-      $scope.new_agency = {
+      $scope.newAgency = {
         name: '',
         description: '',
         tag_list: [],
@@ -22,10 +22,10 @@ angular.module('app').controller("AgencyCtrl", [
     $scope.submitForm = ()->
       console.dir('submit new agency')
       data = { agency: {
-        name: $scope.new_agency.name,
-        description: $scope.new_agency.description,
-        tag_list: $scope.new_agency.tag_list,
-        grade: $scope.new_agency.grade
+        name: $scope.newAgency.name,
+        description: $scope.newAgency.description,
+        tag_list: $scope.newAgency.tag_list,
+        grade: $scope.newAgency.grade
       } }
 
       console.log(data)
